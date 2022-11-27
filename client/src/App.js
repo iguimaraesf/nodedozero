@@ -1,27 +1,19 @@
 import './App.css';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
+import Home from './pages/Home'
+import CreatePost from './pages/CreatePost';
 
 function App() {
-  const [listaPosts, setListaPosts] = useState([])
-  useEffect(() => {
-    axios.get("http://localhost:3001/posts").then((response) => {
-      setListaPosts(response.data)
-    })
-}, [])
   return (
     <div className="App">
-      {
-        listaPosts.map((value, key) => {
-          return (
-            <div className='post'>
-              <div className='title'>{value.title}</div>
-              <div className='body'>{value.postText}</div>
-              <div className='footer'>{value.username}</div>
-            </div>
-          )
-        })
-      }
+        <BrowserRouter>
+            <Link to="/createpost">Novo post</Link>
+            <Link to="/">Home</Link>
+            <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/createpost' element={<CreatePost/>}/>
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }
