@@ -68,3 +68,102 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Feito
+## Capitulo 1
+## Capitulo 2
+## Capitulo 3
+## Capitulo 4
+* Usando BrowserRouter ao invés de Router porque senão os nomes ficam muito parecidos: Router, Route, Routes
+* React Router DOM v6 - Ao invés da tag Switch, usar a tag Router
+* React Router DOM v6 - A sitaxe mudou para: Route path='/' element={<Home/>}
+* na tag Field, o nome da propriedade autocomplete foi mudado para autoComplete
+## Capitulo 5
+* A rota era GET /byID/:id, mas simplifiquei para GET /:id
+* Implementar useNavigate ao invés de useHistory
+    import { useNavigate } from 'react-router-dom'
+    ...
+    let navigate = useNavigate();
+    ...
+    navigate('/')
+## Capitulo 6
+## Capitulo 7
+* Estava em looping fazendo as consultas no back-end depois que a página carregou.
+    FALTOU O SEGUNDO PARÂMETRO DO useEffect.
+    estava:
+
+        useEffect(() => {
+            axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+            setPostObject(response.data);
+            });
+
+            axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
+            setComments(response.data);
+            });
+        });
+
+    ficou:
+        useEffect(() => {
+            axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+            setPostObject(response.data);
+            });
+
+            axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
+            setComments(response.data);
+            });
+        }
+        
+        ,
+        
+        []);
+
+# TODO
+
+## Capítulo 1
+- definir os tamanhos dos campos do tipo string
+- definir as migrações
+- definir os dados iniciais em cada ambiente
+## Capítulo 2
+- separar um bean para a camada web (???)
+## Capítulo 3
+- Na Home, com a lista de posts, ocorre este erro:
+    react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop.
+    Check the render method of `Home`. See https://reactjs.org/link/warning-keys for more information.
+        at div
+        at Home (http://localhost:3000/static/js/bundle.js:436:86)
+        at RenderedRoute (http://localhost:3000/static/js/bundle.js:46047:5)
+        at Routes (http://localhost:3000/static/js/bundle.js:46469:5)
+        at Router (http://localhost:3000/static/js/bundle.js:46407:15)
+        at BrowserRouter (http://localhost:3000/static/js/bundle.js:44765:5)
+        at div
+        at App
+## Capítulo 4
+- Quando se coloca acentos, dá erro.
+- A validação (novo post) não ocorre na primeira chamada. Ao digitar o usuário, ocorre este erro:
+Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
+    at input
+    at Field (http://localhost:3000/static/js/bundle.js:7125:23)
+    at form
+    at http://localhost:3000/static/js/bundle.js:7201:22
+    at Formik (http://localhost:3000/static/js/bundle.js:6915:19)
+    at div
+    at CreatePost (http://localhost:3000/static/js/bundle.js:253:79)
+    at RenderedRoute (http://localhost:3000/static/js/bundle.js:46047:5)
+    at Routes (http://localhost:3000/static/js/bundle.js:46469:5)
+    at Router (http://localhost:3000/static/js/bundle.js:46407:15)
+    at BrowserRouter (http://localhost:3000/static/js/bundle.js:44765:5)
+    at div
+    at App
+## Capítulo 5
+## Capítulo 6
+- Definir o nome dos campos de associação no estilo camel case.
+## Capítulo 7
+- Definir constraints na base de dados para a chave estrangeira.
+- Gravou data e hora com fuso horário GMT+0.
+
+# Aprofundar
+- Modos de usar o *import*
+- Qual é a diferença entre *const* e *let*?
+- Atribuir valores para 2 variáveis
+- Funções e classes na cláusula *export*
+- Quais são as outras opções de uso do *useState*? _useState({})_ vs _useState([])_ vs _useState("")_
