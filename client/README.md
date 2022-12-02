@@ -160,6 +160,8 @@ Warning: A component is changing an uncontrolled input to be controlled. This is
 ## Capítulo 7
 - Definir constraints na base de dados para a chave estrangeira.
 - Gravou data e hora com fuso horário GMT+0.
+## Capítulo 8
+- Mesmo quando deu erro na gravação do usuário (variável user ao invés de username), retornou SUCCESS
 
 # Aprofundar
 - Modos de usar o *import*
