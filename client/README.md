@@ -138,6 +138,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
         at div
         at App
 ## Capítulo 4
+- CSS _inputCreatePost_ é usado como ID em mais do que um objeto nas páginas.
 - Quando se coloca acentos, dá erro.
 - A validação (novo post) não ocorre na primeira chamada. Ao digitar o usuário, ocorre este erro:
 Warning: A component is changing an uncontrolled input to be controlled. This is likely caused by the value changing from undefined to a defined value, which should not happen. Decide between using a controlled or uncontrolled input element for the lifetime of the component. More info: https://reactjs.org/link/controlled-components
@@ -162,10 +163,22 @@ Warning: A component is changing an uncontrolled input to be controlled. This is
 - Gravou data e hora com fuso horário GMT+0.
 ## Capítulo 8
 - Mesmo quando deu erro na gravação do usuário (variável user ao invés de username), retornou SUCCESS
+## Capítulo 9
+- Aviso de compilação:
+    [eslint]
+    Compiled with warnings.
 
+    [eslint]
+    src\pages\Post.js
+    Line 17:8:  React Hook useEffect has a missing dependency: 'id'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+    Search for the keywords to learn more about each warning.
+    To ignore, add // eslint-disable-next-line to the line before.
+- Ao modificar o token, tornando-o inválido, a mensagem que retorna é [Object]
 # Aprofundar
 - Modos de usar o *import*
 - Qual é a diferença entre *const* e *let*?
 - Atribuir valores para 2 variáveis
 - Funções e classes na cláusula *export*
 - Quais são as outras opções de uso do *useState*? _useState({})_ vs _useState([])_ vs _useState("")_
+- Fazer login com o KeyCloak
