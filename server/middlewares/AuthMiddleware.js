@@ -5,8 +5,10 @@ const validateToken = (req, res, next) => {
     if (!accessToken) return res.json({error: 'Usuário não autenticado'})
     try {
         const ok = verify(accessToken, "T4tYUfvRHv-yHF7wFQn7V-95mAAbczAy-vSlU9s723d-c1at8bEytS-9JCwh8YIVh")
+        req.user = ok
         if (ok) {
             next()
+            return
         }
         return res.json({error: "token inválido"})
     } catch (err) {

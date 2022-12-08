@@ -116,6 +116,16 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
         ,
         
         []);
+## Capítulo 10
+- No moddleware, ocorria o erro Cannot set headers after they are sent to the client. Coloquei *return* depois que chamei o próximo middleware.
+...
+        req.user = ok
+        if (ok) {
+            next()
+            *return*
+        }
+        return res.json({error: "token inválido"})
+- material extra: context API - https://www.youtube.com/watch?v=sP7ANcTpJr8 ; https://www.youtube.com/watch?v=iHZIZ2wA1U4
 
 # TODO
 
