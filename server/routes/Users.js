@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
                 const accessToken = sign(
                     {username: username, id: user.id},
                     "T4tYUfvRHv-yHF7wFQn7V-95mAAbczAy-vSlU9s723d-c1at8bEytS-9JCwh8YIVh")
-                res.json(accessToken)
+                res.json({token: accessToken, username: username, id: user.id})
             }
         })
     }

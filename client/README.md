@@ -185,6 +185,10 @@ Warning: A component is changing an uncontrolled input to be controlled. This is
     Search for the keywords to learn more about each warning.
     To ignore, add // eslint-disable-next-line to the line before.
 - Ao modificar o token, tornando-o inválido, a mensagem que retorna é [Object]
+## Capítulo 10
+- Depois que faz o login, não redireciona para a home
+
+
 # Aprofundar
 - Modos de usar o *import*
 - Qual é a diferença entre *const* e *let*?
